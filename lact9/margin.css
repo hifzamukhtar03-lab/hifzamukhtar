@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(177, 108, 177);
+}
+
+
+/* border,margin,padding */
+
+.box{
+    background-color: pink;
+    height:400px;
+    width:400px;
+
+    /* border */
+border-width: 10px;
+border-style: dashed;
+border-color: black;
+
+/* margin */
+margin-top:100px;
+margin-left: 300px;
+
+/* padding */
+padding-top: 10px;
+padding-left:200px;
+
+
+
+
+}
