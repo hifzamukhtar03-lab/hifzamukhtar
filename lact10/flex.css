@@ -1,0 +1,35 @@
+body{
+    background-color: brown;
+
+}
+
+
+
+.container{
+    display: flex;
+    justify-content: center;
+             align-items: center;
+                  min-height: 100vh;
+
+}
+.heading-left{
+    padding-left: 100px;
+    
+    
+}
+
+
+
+
+.box{
+    background-color: rgb(87, 123, 155);
+    height: 400px;
+    width:400px;
+
+    margin:10px;
+    padding:10px;
+    border:10px;
+    border-color: silver ;
+    border-style: groove;
+
+}
