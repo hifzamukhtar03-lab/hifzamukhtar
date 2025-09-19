@@ -1,0 +1,32 @@
+body{
+ background-color: rgb(37, 40, 44);   
+}
+
+/* position fix,position reletive,position absolute */
+.box1{
+position:absolute;
+
+    background-color: pink;
+    margin: 10px;
+    padding: 10px;
+    height: 300px;
+    width: 300px;
+    border: 10px;
+    border-style: dashed;
+    border-color: solid silver;
+    z-index: 1;
+}
+
+.box2{
+     position:relative;
+  
+    background-color: yellow;
+    margin: 10px;
+    padding: 10px;
+    height: 300px;
+    width: 300px;
+    border: 10px;
+    border-style: dashed;
+    border-color: solid silver;
+   z-index: 0;
+}
