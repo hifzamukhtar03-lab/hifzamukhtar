@@ -1,0 +1,42 @@
+:root{
+    --orange-color:rgb(242, 147, 22);
+}
+
+
+body{
+    background-color: rgb(132, 132, 189);
+}
+nav{
+    padding-top: 20px!important;
+    padding-bottom: 20px!important;
+}
+
+.nav-link{
+    color: black;
+    padding-left: 20px !important;
+padding-right: 20px !important;
+font-weight: 500px!important;
+font-size: 18px!important;
+
+}
+.nav-link:hover{
+    color: var(--orange-color) !important;
+    transition: all ease 3s ;
+}
+.bg-team{
+    background-image:url('./h1.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 600px;
+
+
+
+}
+.textheight-600{
+    min-height: 600px;
+    display:grid;
+    place-items:right;
+    place-content: center;
+
+}
