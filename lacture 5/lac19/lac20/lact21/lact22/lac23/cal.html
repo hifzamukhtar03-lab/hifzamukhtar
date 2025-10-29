@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scientific Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #94eeec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .calculator {
+      background: #cc6592;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .calculator input {
+      height: 60px;
+      font-size: 24px;
+      text-align: right;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      font-size: 18px;
+      padding: 15px;
+    }
+
+    .btn-operator {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .btn-func {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    .btn-equal {
+      background-color: #FF9800;
+      color: white;
+    }
+
+    .btn-clear {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" class="form-control" id="display" readonly>
+
+  <div class="row g-2">
+    <div class="col-3"><button class="btn btn-func w-100" onclick="appendFunction('sin')">sin</button></div>
+    <div class="col-3"><button class="btn btn-func w-100" onclick="appendFunction('cos')">cos</button></div>
+    <div class="col-3"><button class="btn btn-func w-100" onclick="appendFunction('tan')">tan</button></div>
+    <div class="col-3"><button class="btn btn-clear w-100" onclick="clearDisplay()">C</button></div>
+
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('7')">7</button></div>
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('8')">8</button></div>
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('9')">9</button></div>
+    <div class="col-3"><button class="btn btn-operator w-100" onclick="appendValue('/')">÷</button></div>
+
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('4')">4</button></div>
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('5')">5</button></div>
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('6')">6</button></div>
+    <div class="col-3"><button class="btn btn-operator w-100" onclick="appendValue('*')">×</button></div>
+
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('1')">1</button></div>
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('2')">2</button></div>
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('3')">3</button></div>
+    <div class="col-3"><button class="btn btn-operator w-100" onclick="appendValue('-')">-</button></div>
+
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('0')">0</button></div>
+    <div class="col-3"><button class="btn btn-secondary w-100" onclick="appendValue('.')">.</button></div>
+    <div class="col-3"><button class="btn btn-equal w-100" onclick="calculate()">=</button></div>
+    <div class="col-3"><button class="btn btn-operator w-100" onclick="appendValue('+')">+</button></div>
+
+    <div class="col-4"><button class="btn btn-func w-100" onclick="appendFunction('log')">log</button></div>
+    <div class="col-4"><button class="btn btn-func w-100" onclick="appendFunction('sqrt')">√</button></div>
+    <div class="col-4"><button class="btn btn-func w-100" onclick="appendValue('**')">^</button></div>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById("display");
+
+  function appendValue(val) {
+    display.value += val;
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+
+  function appendFunction(func) {
+    if (func === 'sqrt') {
+      display.value += 'Math.sqrt(';
+    } else if (func === 'log') {
+      display.value += 'Math.log10(';
+    } else {
+      display.value += 'Math.' + func + '(';
+    }
+  }
+
+  function calculate() {
+    try {
+      const result = eval(display.value);
+      display.value = result;
+    } catch (e) {
+      display.value = "Error";
+    }
+  }
+</script>
+
+</body>
+</html>

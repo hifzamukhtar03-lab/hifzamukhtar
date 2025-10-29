@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Motivation Generator</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    button {
+      background-color: #f1c40f;
+      color: #2c3e50;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e2b607;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="quote-box">
+    <h1>Daily Motivation 💫</h1>
+    <p id="quote">Click below to get inspired!</p>
+    <button onclick="generateQuote()">✨ New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      "“Code is like poetry — every line tells a story.”",
+      "“Don’t count the days, make the days count.” — Muhammad Ali",
+      "“It always seems impossible until it’s done.” — Nelson Mandela",
+      "“The best way to predict the future is to create it.” — Peter Drucker",
+      "“Small steps every day lead to big change.”",
+      "“Your code doesn’t have to be perfect, it just has to run — and teach you.”",
+      "“Dream in logic, build in passion.”",
+      "“Stay curious, stay humble, stay coding.”"
+    ];
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quoteElement = document.getElementById("quote");
+      quoteElement.textContent = quotes[randomIndex];
+    }
+  </script>
+</body>
+</html>

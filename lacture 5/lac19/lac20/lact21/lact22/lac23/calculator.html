@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooking Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8f0;
+    }
+
+    /* Header */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      background-attachment: fixed;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* About Section */
+    .about {
+      padding: 60px 0;
+    }
+
+    .about img {
+      border-radius: 15px;
+      width: 100%;
+    }
+
+    /* Recipe Cards */
+    .recipes {
+      background-color: #fff3e0;
+      padding: 60px 0;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>🍳 Chef Amelia’s Kitchen</h1>
+    <p>“Cooking is love made visible.” — Showcasing passion, creativity, and flavors that tell a story.</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="about container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Chef Image">
+      </div>
+      <div class="col-md-6 mt-4 mt-md-0">
+        <h2>About Me</h2>
+        <p>
+          Hello! I’m <strong>Hifza</strong>, a passionate home chef and food artist who loves to turn simple ingredients into extraordinary dishes. 
+          My cooking style blends traditional flavors with modern presentation, creating a balance between comfort and creativity.
+        </p>
+        <p>
+          Whether it’s baking desserts, crafting healthy meals, or experimenting with world cuisines, I believe food is a language of love and connection.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipes Section -->
+  <section class="recipes text-center">
+    <div class="container">
+      <h2 class="mb-5">My Signature Recipes</h2>
+      <div class="row g-4">
+        <!--  -->
+
+        <div class="col-md-6">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Dish 2">
+            <div class="card-body">
+              <h5 class="card-title">Spicy Thai Noodles</h5>
+              <p class="card-text">A colorful bowl of flavors — chili, lime, and fresh veggies that wake your taste buds.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Dish 3">
+            <div class="card-body">
+              <h5 class="card-title">Chocolate Lava Cake</h5>
+              <p class="card-text">A gooey chocolate delight — warm, rich, and irresistibly delicious.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Chef Amelia’s Kitchen | Designed with ❤️ and passion</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

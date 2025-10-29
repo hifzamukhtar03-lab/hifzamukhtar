@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS lac</title>
+</head>
+<body>
+    <h1>HIFZA</h1>
+
+    <script>
+    //     // in function the value of variables will b changed
+    //     // variables diclaration
+    //     var a;
+    //     // assignment
+    //     a=10;
+    //     console.log(a);
+    //     // reassignment
+    //     var a=20;
+    //     console.log(a);
+
+
+    //     // literals in function no value wil b changed and no declaration in same variables
+    //     let h;
+    //     // numeric literal
+    //     h=100;
+    //     console.log(h);
+    //     // reassignment
+    //     let h=150;
+    //     console.log(h);
+    //     // in function
+    //     function greet(){
+    //        h+=200;
+    //        let h=200;
+    //       console.log(h);
+    //     }
+    //     greet();
+
+
+    // // const keywords
+    // const c=500;
+    // console.log(c);
+    // // reassignment not allowed
+    // c=600;
+    // console/log(c);
+
+
+    // Arithimetic operators,Logical operators,String operators
+
+    var x="text";
+
+    var t=302;
+    var y=100;
+
+    var z=t % y;
+    console.log(z)
+
+
+//    increment,decrement
+    t++ 
+    t--
+    console.log(t,"t value");
+
+// Logical operators
+let p=100;
+let q=100;
+// AND
+console.log(p && q);
+// OR
+console.log(p || q);
+// NOT
+console.log(!p);
+// equal to
+console.log(p==q,"Equal operator");
+console.log(p === q)
+
+// string operator
+let firstname ="Hifza";
+let lastname ="Mukhtar";
+
+let fullname = firstname + lastname;
+console.log(fullname);
+
+
+// functions
+//  of addition
+
+function addition(m,n){
+    return m + n;
+}
+
+// 500 is assigned to x
+let a = addition(200,300);
+// 700 is assigined to y
+let b =addition(300,400);
+
+
+console.log("this is a odd value a",a);
+console.log("this is a odd value b",b);
+
+
+
+// subtraction
+
+function subtraction(m,n){
+    return m-n;
+}
+// 100 value assigned to c
+let c =subtraction(200,300);
+
+console.log("this is an even value c",c);
+
+
+
+
+
+
+// Multiplication
+function multiplication(m,n){
+    return m*n;
+}
+// 6000 assigned to d
+let d =multiplication(200,300);
+
+console.log("this is even value of d",d);
+
+
+
+
+// Division
+function Division(m,n){
+    return m/n;
+}
+// this value assigned to e
+let e =Division(200,300);
+
+console.log("this is an division value of e",e);
+
+
+
+
+// conditions if else,if else if,switch,ternary
+
+// if else
+let today = "rain";
+if(today == "rain"){
+console.log("we take rest");
+}else{
+    console.log("we are playing");
+
+}
+
+// if else if
+let no = 537;
+ if( no == 0){
+console.log(no+"is equal to zaro")
+ }
+else if( no >0){
+console.log(no+"this is greater then zaero")
+}else{
+    console.log(no+"this is less than zaero");
+}
+
+
+
+// switch condition
+ let day = 5;
+switch(day){
+    case 1:
+        console.log("today is monday");
+        break;
+
+ case 2:
+        console.log("today is tuesday");
+        break;
+        
+ case 3:
+        console.log("today is wednesday");
+        break;
+        
+ case 4:
+        console.log("today is thursday");
+        break;
+        
+ case 5:
+        console.log("today is friday");
+        break;
+        
+ case 6:
+        console.log("today is saturday");
+        break;
+        
+ 
+        default:
+            console.log("today is sunday");
+            break;
+
+}
+
+
+
+// ternary condition
+
+let ter = 32;
+ter %2 ==0 ?console.log("even") : console.log("odd");
+
+    
+// if else question q1
+
+
+let num = parseInt(prompt("Enter your number:"));
+
+
+if (num % 2 === 0) {
+  console.log("The number is even.");
+} else {
+  console.log("The number is odd.");
+}
+
+// q2
+
+let age = 20
+if (age >= 18) {
+  console.log("You are eligible to vote.");
+} else {
+  console.log("You are not eligible to vote yet.");
+}
+
+// q3
+let number = 6;
+
+if (number > 0) {
+  console.log("The number is positive.");
+} else if (number < 0) {
+  console.log("The number is negative.");
+} else {
+  console.log("The number is zero.");
+}
+
+// q4
+let storedPassword = "hhh"; // You can change this value
+let enteredPassword = prompt("enter password:");
+
+if (enteredPassword === storedPassword) {
+  console.log("Access granted.");
+} else {
+  console.log("Access denied. Incorrect password.");
+}
+
+// q5
+let numb = 500;
+
+if (numb %5 === 0) {
+  console.log("The number is divisible by 5.");
+} else {
+  console.log("The number is not divisible by 5.");
+}
+
+
+// if else if 
+// q1
+
+let marks = 100;
+
+if (marks >= 90) {
+  console.log("Grade: A");
+} else if (marks >= 80) {
+  console.log("Grade: B");
+} else if (marks >= 70) {
+  console.log("Grade: C");
+} else if (marks >= 60) {
+  console.log("Grade: D");
+} else {
+  console.log("Grade: F");
+}
+
+
+// q2
+let num1 = 500;
+let num2 = 400;
+let num3 = 300;
+
+if (num1 >= num2 && num1 >= num3) {
+  console.log(num1 + " is the largest number.");
+} else if (num2 >= num1 && num2 >= num3) {
+  console.log(num2 + " is the largest number.");
+} else {
+  console.log(num3 + " is the largest number.");
+}
+
+
+// q3
+let monthNum = 1-12;
+let monthName;
+
+if (monthNum === 1) monthName = "January";
+else if (monthNum === 2) monthName = "February";
+else if (monthNum === 3) monthName = "March";
+else if (monthNum === 4) monthName = "April";
+else if (monthNum === 5) monthName = "May";
+else if (monthNum === 6) monthName = "June";
+else if (monthNum === 7) monthName = "July";
+else if (monthNum === 8) monthName = "August";
+else if (monthNum === 9) monthName = "September";
+else if (monthNum === 10) monthName = "October";
+else if (monthNum === 11) monthName = "November";
+else if (monthNum === 12) monthName = "December";
+else monthName = "Invalid month number";
+
+console.log("Month:", monthName);
+
+
+
+// q4
+let temp = 30;
+
+if (temp < 10) {
+  console.log("Cold");
+} else if (temp <= 25) {
+  console.log("Warm");
+} else {
+  console.log("Hot");
+}
+
+// q5
+let char = 26;
+
+if (!isNaN(char)) {
+  console.log("It's a digit.");
+} else if (
+  char.toLowerCase() === "a" ||
+  char.toLowerCase() === "e" ||
+  char.toLowerCase() === "i" ||
+  char.toLowerCase() === "o" ||
+  char.toLowerCase() === "u"
+) {
+  console.log("It's a vowel.");
+} else if (char.match(/[a-z]/i)) {
+  console.log("It's a consonant.");
+} else {
+  console.log("It's a special symbol.");
+}
+
+
+// switch 
+// q1
+let dayNum = 5;
+let dayName;
+
+switch (dayNum) {
+  case 1:
+     dayName = "Sunday";
+      break;
+  case 2:
+     dayName = "Monday";
+      break;
+  case 3:
+     dayName = "Tuesday";
+      break;
+  case 4:
+     dayName = "Wednesday";
+      break;
+  case 5:
+     dayName = "Thursday";
+      break;
+  case 6:
+     dayName = "Friday"; 
+     break;
+  default:
+     dayName = "Saturday"; 
+     break;
+
+}
+// q2
+let seasonNum = 3;
+let season;
+
+switch (seasonNum) {
+  case 1: season = "Spring"; break;
+  case 2: season = "Summer"; break;
+  case 3: season = "Autumn"; break;
+  case 4: season = "Winter"; break;
+  default: season = "Invalid number";
+}
+
+console.log("Season:", season);
+
+
+
+
+// q3
+
+// // Simple Calculator using switch
+
+// // Take input from the user
+// let numb1 = 4;
+// let operator =("Enter an operator (+, -, *, /):");
+// let numb2 = 4;
+
+// let result;
+
+// switch (operator) {
+//   case '+':
+//     result = num1 + num2;
+//     break;
+//   case '-':
+//     result = num1 - num2;
+//     break;
+//   case '*':
+//     result = num1 * num2;
+//     break;
+//   case '/':
+//     if (num2 === 0) {
+//       result = "Error: Division by zero!";
+//     } else {
+//       result = num1 / num2;
+//     }
+//     break;
+//   default:
+//     result = "valid operator!";
+//     break;
+// }
+
+// alert("Result: " + result);
+
+
+
+// q4
+let color = "green";
+
+switch (color) {
+  case "red":
+    console.log("Stop! The light is red.");
+    break;
+  case "yellow":
+    console.log("Get ready! The light is yellow.");
+    break;
+  case "green":
+    console.log("Go! The light is green.");
+    break;
+  default:
+    console.log("Invalid color.");
+}
+
+// q5
+
+let grade = "A";
+
+switch (grade) {
+  case "A": console.log("Excellent!"); break;
+  case "B": console.log("Very Good!"); break;
+  case "C": console.log("Good!"); break;
+  case "D": console.log("Needs Improvement."); break;
+  case "F": console.log("Failed."); break;
+  default: console.log("Weldone.");
+}
+
+
+
+
+
+
+// ternary
+// q1
+let numbers= parseFloat(prompt("Enter a number:"));
+let results = (num > 0) ? "Positive" : (num < 0) ? "Negative" : "Zero";
+
+
+
+
+// for loops
+ 
+// sum of numbers from 1 to 10
+console.log("sum of numbers fropm 1 to 10 using for loop")
+for(i=1; i<=10; i++){
+  console.log('print hifza' ${i} 'data');
+
+
+}
+console.log("finshed");
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

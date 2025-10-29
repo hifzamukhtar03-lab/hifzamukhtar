@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Bitcount+Ink:wght@100..900&family=Bitcount+Prop+Double+Ink:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+DE+Grund+Guides&display=swap');
+
+
+
 :root{
     --orange-color:rgb(242, 147, 22);
 }
@@ -5,6 +9,7 @@
 
 body{
     background-color: rgb(132, 132, 189);
+           font-family: "Playfair Display", serif;
 }
 nav{
     padding-top: 20px!important;
@@ -20,7 +25,7 @@ font-size: 18px!important;
 
 }
 .nav-link:hover{
-    color: var(--orange-color) !important;
+    color: red!important;
     transition: all ease 3s ;
 }
 .bg-team{
@@ -30,13 +35,182 @@ background-position: center;
 background-repeat: no-repeat;
 height: 600px;
 
-
-
 }
+
 .textheight-600{
     min-height: 600px;
     display:grid;
     place-items:right;
     place-content: center;
+    text-align: center;
 
+}
+
+.textheight-600 h1{
+    font-size: 30px;
+    color:red;
+    font-weight: 500px;
+    position: relative;
+    padding-left: 10px;
+}
+.textheight-600 h3{
+    font-size: 70px;
+letter-spacing: 3px;
+font-weight: 400px;
+text-align: center;
+
+}
+
+.textheight-600 h1::before{
+position:absolute;
+content: "";
+width: 50px;
+height: 4px;
+background-color:red;
+top: 50%;
+left:0;
+
+}
+.btn-danger:hover{
+    transition: all ease 4s;
+    background-color: blue;
+    border-color: orange;
+    
+    
+}
+.btn-danger{
+    width: 50%;
+    padding: 10px;
+    margin:10px;
+    cursor:pointer;
+    
+}
+
+/* section2 cards */
+.card,.card-body{
+    transition: all ease 4s;
+}
+
+
+.card:hover .card-body{
+background-color: red;
+color: white !important;
+}
+.card-body{
+    margin: 20px;
+}
+.rounded-icons{
+    height: 40px;
+    width: 40px;
+border-radius: 50%;
+background-color: rgb(212, 198, 225);
+justify-content: center;
+display: flex;
+align-items: center;
+margin: auto;
+}
+
+/* section3 */
+.bg-info{
+    background-image:url(jjj.jpg.webp) ;
+    background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 600px;
+}
+.card{
+    margin-left: 130px;
+    margin-top: 50px;
+}
+.text-height-500{
+     min-height: 500px;
+    display:grid;
+    place-items:right;
+    place-content: center;
+    text-align: center;
+}
+
+.text-height-500 h6::before{
+position:absolute;
+content: "";
+width: 50px;
+height: 4px;
+background-color:grey;
+top: 50%;
+left:0;
+}
+.text-height-500 h6{
+    position: relative;
+}
+
+.text-height-500 h5{
+    font-weight: 400px;
+}
+
+.btn-secondary{
+    background: #eeaeeb;
+background: radial-gradient(circle, rgba(238, 174, 235, 1) 0%, rgba(63, 87, 115, 1) 100%);
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+    height: 50px;
+}
+
+.btn-secondary:hover{
+     transition: all ease 4s;
+    background-color:red;
+    border-color: black;
+}
+
+/* section4 */
+
+
+.brand{
+    position: relative;
+}
+
+.box{
+    position: absolute;
+    padding: 0%;
+    margin: 0%;
+    padding: 20px;
+    width: 30%;
+    margin-top: -50px;
+    
+
+}
+.box h6::before{
+    position: relative;
+    content: "";
+    width: 40%;
+    height: 4px;
+color: pink;
+top: 50%;
+}
+
+/* section5 */
+
+.image{
+    background-image: url(section_bg04.jpg.webp);
+    background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 600px;
+}
+
+/* section 6 */
+
+.swiper,.slider
+ {
+    width: 600px !important;
+    height: 300px !important
+} 
+/* 
+ .swiper {
+    width: 600px !important;
+    height: 300x !important;  
+} */
+.img-1{
+    height: 300px !important;
+    width: 600px !important;
 }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wonderful Quote Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6a80e3, #764ba2);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    #quote {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      transition: all 0.4s ease;
+      min-height: 60px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #ffffff;
+      color: #333;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ffce00;
+      color: #000;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🌟 Inspirational Quote Generator</h1>
+  <div id="quote">Click the button to get inspired!</div>
+  <button onclick="generateQuote()">New Quote</button>
+
+  <footer>Built with ❤️ using HTML, CSS, JS & PHP</footer>
+</div>
+
+<script>
+  const quotes = [
+    "Believe you can and you're halfway there. – Theodore Roosevelt",
+    "The only way to do great work is to love what you do. – Steve Jobs",
+    "You miss 100% of the shots you don’t take. – Wayne Gretzky",
+    "Success is not in what you have, but who you are. – Bo Bennett",
+    "Dream big and dare to fail. – Norman Vaughan",
+    "Stay hungry, stay foolish. – Steve Jobs",
+    "Act as if what you do makes a difference. It does. – William James",
+    "What lies behind us and what lies before us are tiny matters compared to what lies within us. – Emerson"
+  ];
+
+  function generateQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const selectedQuote = quotes[randomIndex];
+
+    document.getElementById('quote').textContent = selectedQuote;
+
+    // Send to PHP for logging
+    fetch("quote_generator.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: "quote=" + encodeURIComponent(selectedQuote)
+    });
+  }
+</script>
+
+<?php
+// Log quote if POSTed
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quote'])) {
+    $quote = trim($_POST['quote']);
+    $timestamp = date('Y-m-d H:i:s');
+    file_put_contents("quote_log.txt", "[$timestamp] $quote\n", FILE_APPEND);
+    exit; // avoid sending HTML response
+}
+?>
+
+</body>
+</html>

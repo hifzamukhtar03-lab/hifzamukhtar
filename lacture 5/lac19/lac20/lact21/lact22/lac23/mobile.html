@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Phone Simulation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #e181a9;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .phone {
+      width: 300px;
+      height: 550px;
+      background: #111;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(191, 121, 121, 0.4);
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .screen {
+      height: 80px;
+      background: #af9595;
+      border-radius: 15px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .keypad button {
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 50%;
+      background: #333;
+      color: rgb(217, 118, 118);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .keypad button:hover {
+      background: #534545;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .actions button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .call {
+      background-color: green;
+    }
+
+    .clear {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="phone">
+  <div class="screen" id="screen"> </div>
+
+  <div class="keypad">
+    <button onclick="appendNumber('1')">1</button>
+    <button onclick="appendNumber('2')">2</button>
+    <button onclick="appendNumber('3')">3</button>
+    <button onclick="appendNumber('4')">4</button>
+    <button onclick="appendNumber('5')">5</button>
+    <button onclick="appendNumber('6')">6</button>
+    <button onclick="appendNumber('7')">7</button>
+    <button onclick="appendNumber('8')">8</button>
+    <button onclick="appendNumber('9')">9</button>
+    <button onclick="appendNumber('*')">*</button>
+    <button onclick="appendNumber('0')">0</button>
+    <button onclick="appendNumber('#')">#</button>
+  </div>
+
+  <div class="actions">
+    <button class="clear" onclick="clearScreen()">Clear</button>
+    <button class="call" onclick="makeCall()">Call</button>
+  </div>
+</div>
+
+<script>
+  const screen = document.getElementById('screen');
+
+  function appendNumber(num) {
+    screen.textContent += num;
+  }
+
+  function clearScreen() {
+    screen.textContent = '';
+  }
+
+  function makeCall() {
+    const number = screen.textContent;
+    if (number.length === 0) {
+      alert("Enter a number to call!");
+      return;
+    }
+
+    alert("Calling " + number + "...");
+
+    // Send to PHP for logging
+    fetch("mobile_phone.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: "dialedNumber=" + encodeURIComponent(number)
+    });
+  }
+</script>
+
+<?php
+// PHP code to handle "call" submission
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['dialedNumber'])) {
+    $number = $_POST['dialedNumber'];
+
+    // Example: Log number to file
+    file_put_contents("call_log.txt", "Dialed: $number\n", FILE_APPEND);
+
+    // Optional: send a response (not used here)
+    echo "Number logged: $number";
+    exit;
+}
+?>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mood-Based Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .mood-buttons button {
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .mood-buttons button:hover {
+      transform: scale(1.05);
+    }
+
+    .happy { background: #fdd835; }
+    .sad { background: #64b5f6; }
+    .energetic { background: #81c784; }
+    .chill { background: #ba68c8; }
+    .romantic { background: #f06292; }
+
+    .suggestion {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎶 Mood-Based Music Suggestions</h1>
+  <p>Select your current mood and we'll suggest a song!</p>
+
+  <div class="mood-buttons">
+    <button class="happy" onclick="suggest('Happy')">Happy</button>
+    <button class="sad" onclick="suggest('Sad')">Sad</button>
+    <button class="energetic" onclick="suggest('Energetic')">Energetic</button>
+    <button class="chill" onclick="suggest('Chill')">Chill</button>
+    <button class="romantic" onclick="suggest('Romantic')">Romantic</button>
+  </div>
+
+  <div class="suggestion" id="suggestion">🎧 Your music suggestion will appear here...</div>
+
+  <footer>Made with ❤️ using HTML, CSS, JS, and PHP</footer>
+</div>
+
+<script>
+  const suggestions = {
+    Happy: "🎵 'Happy' by Pharrell Williams",
+    Sad: "🎵 'Someone Like You' by Adele",
+    Energetic: "🎵 'Eye of the Tiger' by Survivor",
+    Chill: "🎵 'Weightless' by Marconi Union",
+    Romantic: "🎵 'Perfect' by Ed Sheeran"
+  };
+
+  function suggest(mood) {
+    const song = suggestions[mood] || "🎵 No suggestion available.";
+    document.getElementById("suggestion").textContent = song;
+
+    // Log to PHP
+    fetch('mood_music.php', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: 'mood=' + encodeURIComponent(mood)
+    });
+  }
+</script>
+
+<?php
+// PHP to log the selected mood
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mood'])) {
+    $mood = strip_tags($_POST['mood']);
+    $timestamp = date('Y-m-d H:i:s');
+    file_put_contents("mood_log.txt", "[$timestamp] Mood: $mood\n", FILE_APPEND);
+    exit;
+}
+?>
+
+</body>
+</html>
